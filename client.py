@@ -10,8 +10,8 @@ PRICES_PER_MILLION: dict[str, tuple[float, float]] = {
     "gemini-2.5-flash": (0.30, 2.50),
     "gemini-2.5-flash-lite": (0.10, 0.40),
     "gemini-2.5-pro": (1.25, 10.00),
+    "gemini-3.8-flash": (0.75, 3.75),
 }
-
 
 class PromptExecutionError(RuntimeError):
     """A provider request could not be completed."""
