@@ -1,0 +1,5 @@
+[
+  {"prompt": "In exactly three bullet points, explain why someone might choose a smaller, cheaper language model over a bigger one.", "temperature": 0.3},
+  {"prompt": "A customer writes: 'I won my bet yesterday but the money is not in my account.' Write a short, empathetic first reply from support.", "temperature": 0.5},
+  {"prompt": "How many times does the letter 'r' appear in the word 'strawberry'? Answer with a number only.", "temperature": 0.0}
+]

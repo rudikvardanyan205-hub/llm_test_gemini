@@ -1,0 +1,17 @@
+[
+  {"prompt": "Explain what a token is in large language models in two sentences.", "temperature": 0.2},
+  {"prompt": "Summarize in one sentence: The customer placed a bet on a football match that was postponed due to weather. They want to know whether the bet is void and when they will get their stake back.", "temperature": 0.0},
+  {"prompt": "Classify this support message into one of: payment, bet_settlement, account_access, bonus, other. Reply with the category only. Message: 'I deposited 50 EUR two hours ago and it still isn't showing on my balance.'", "temperature": 0.0},
+  {"prompt": "Classify this support message into one of: payment, bet_settlement, account_access, bonus, other. Reply with the category only. Message: 'My password reset email never arrives, I've tried three times.'", "temperature": 0.0},
+  {"prompt": "Translate into Russian: 'Your withdrawal request has been approved and will be processed within 24 hours.'", "temperature": 0.3},
+  {"prompt": "Translate into Armenian: 'Thank you for contacting support. We will reply as soon as possible.'", "temperature": 0.3},
+  {"prompt": "Write a short, polite reply to a customer whose welcome bonus was not credited because they did not meet the minimum deposit.", "temperature": 0.7},
+  {"prompt": "Extract the team names, the match date and the bet amount from this text and return them as JSON: 'Placed 20 USD on Barcelona vs Real Madrid, match on 12 October.'", "temperature": 0.0},
+  {"prompt": "What is the difference between decimal odds and fractional odds? Give one example of each.", "temperature": 0.3},
+  {"prompt": "If decimal odds are 2.50 and the stake is 40 EUR, what is the potential payout? Show the calculation.", "temperature": 0.0},
+  {"prompt": "Give three creative names for an internal AI assistant that helps a customer support team.", "temperature": 1.0},
+  {"prompt": "Write a haiku about debugging Python code late at night.", "temperature": 1.0},
+  {"prompt": "List 5 common reasons why an API request might time out.", "temperature": 0.3},
+  {"prompt": "Explain async/await in Python to a beginner using a real-life analogy, in under 100 words.", "temperature": 0.5},
+  {"prompt": "Rewrite this message to sound more professional: 'hey ur bet got cancelled cuz the game didnt happen, money's back soon'", "temperature": 0.5}
+]

@@ -1,0 +1,10 @@
+[
+  {"prompt": "What is the capital of Armenia?", "temperature": 0.2},
+  {"temperature": 0.5},
+  {"prompt": "", "temperature": 0.3},
+  {"prompt": "Explain what a context window is.", "temperature": 5},
+  {"prompt": "Name three Python web frameworks.", "temperature": "high"},
+  {"prompt": 12345, "temperature": 0.2},
+  {"prompt": "Summarize what JSON is in one sentence.", "temperature": -1},
+  {"prompt": "Give one tip for writing clear prompts.", "temperature": 0.4, "unexpected_field": true}
+]

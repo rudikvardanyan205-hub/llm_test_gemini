@@ -1,0 +1,13 @@
+[project]
+name = "mini-llm-client-gemini"
+version = "0.1.0"
+description = "Async Gemini prompt runner with Pydantic validation and result export"
+requires-python = ">=3.11"
+dependencies = ["google-genai>=1.0,<3", "pydantic>=2.8,<3", "pydantic-settings>=2.5,<3"]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
