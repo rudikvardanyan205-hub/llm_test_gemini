@@ -1,22 +1,71 @@
-# Mini LLM Client — Gemini
+# Mini LLM Client
 
-A small client project for experimenting with Google's Gemini generative AI models.
+A small Python project that sends prompts to Google Gemini and saves the responses.
 
-## Setup
+## Script Work
 
-1. Obtain a Gemini API key from [Google AI Studio](https://aistudio.google.com/).
-2. Configure the key using the environment variable expected by the project. Keep API keys secret and do not commit them to source control.
-3. Install the dependencies and run the application using the commands appropriate for the language and package manager used in this repository.
+The script can:
 
-## Usage
+- send one prompt
+- read prompts from JSON files
+- send multiple prompts asynchronously
+- compare Gemini models
+- save results to `results.json`
 
-Use the client to send a prompt to Gemini and work with the generated response. Refer to the project source for its specific entry point, configuration options, and supported models.
+Prompts are validated before being sent to the API.
 
-## Notes
+## Libraries Used
 
-- Keep credentials out of logs and committed files.
-- Gemini model availability, quotas, and API behavior may depend on your Google AI account and current API configuration.
+The project uses a few main libraries:
 
-## License
+- `google-genai` - official Google library used to send requests to Gemini models
+- `pydantic` - used to validate prompt data and response models
+- `pydantic-settings` - used to load configuration values from `.env`
+- `asyncio` - used to run several API requests concurrently
+- `json` - used to read prompt files and save results
+- `time` - used to measure request latency
 
-No license is specified in this repository. Add a license file if you intend to distribute the project.
+## Prompt Sending
+
+Prompts are sent using the Gemini async client.
+
+The script collects:
+
+- response text
+- input tokens
+- output tokens
+- latency
+- estimated cost
+
+## Async
+
+For batch requests, `asyncio.gather()` is used so multiple prompts can run at the same time.
+
+This is faster than waiting for each prompt one by one.
+
+## Exception Handling
+
+The script handles:
+
+- missing API key
+- invalid prompt data
+- API errors
+- timeouts
+- unsupported models
+
+Failed API requests can be retried up to 3 times.
+
+If one prompt fails during a batch run, the other prompts can still continue.
+
+## Results
+
+Successful responses are saved to:
+
+```text
+results.json
+
+
+Run
+Install dependencies:
+
+uv run python main.py
