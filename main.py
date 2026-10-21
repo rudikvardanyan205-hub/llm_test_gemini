@@ -93,32 +93,31 @@ async def main() -> None:
     args = parse_args()
     print(args)
     settings = Settings()
-    print(settings)
     if args.compare and not 2 <= len(args.compare) <= 3:
         raise ValueError("--compare requires 2 or 3 model names")
     if args.compare and args.file:
         raise ValueError("Use --compare or --file, not both")
     model = args.model or settings.default_model
-    key = settings.require_api_key()  # Fail before opening the network client.
+    key = settings.require_api_key()  
     async with genai.Client(api_key=key).aio as client:
-        if args.file:
-            requests, errors = load_prompts(args.file, model)
+        if args.file: #Checks if input file was provided
+            requests, errors = load_prompts(args.file, model) #Load prompt from the file
         else:
-            prompt = args.prompt if args.prompt is not None else input("Enter prompt: ")
-            models = args.compare or [model]
-            requests = [PromptRequest(prompt=prompt, model=name) for name in models]
-            errors = []
-        results, runtime_errors = await run_requests(client, requests, settings.max_concurrent, settings.request_timeout)
-        errors.extend(runtime_errors)
-    for result in results:
-        if not args.compare:
-            display_result(result)
+            prompt = args.prompt if args.prompt is not None else input("Enter prompt: ") # Get prompt from arguments or input  prompt
+            models = args.compare or [model] #Checks if models for comaring was  provided , if not  deafult model  must be used
+            requests = [PromptRequest(prompt=prompt, model=name) for name in models]  # - 
+            errors = [] # error list since no file was used
+        results, runtime_errors = await run_requests(client, requests, settings.max_concurrent, settings.request_timeout) # - 
+        errors.extend(runtime_errors) # add error list  , any  error
+    for result in results: # loops with  all answers "correct"
+        if not args.compare: #if it's not comparing models
+            display_result(result) # print results
     if args.compare:
-        display_comparison(results)
-    for error in errors:
-        print(f"ERROR: {error}")
-    save_results(args.output, results)
-    print(f"\nSaved {len(results)} result(s) to {args.output}; {len(errors)} failure(s).")
+        display_comparison(results) # compered models results
+    for error in errors: # loop through any error  if there any
+        print(f"ERROR: {error}") # if there is error print  in  console
+    save_results(args.output, results) #saves  the results to the output
+    print(f"\nSaved {len(results)} result(s) to {args.output}; {len(errors)} failure(s).") # - 
 
 
 if __name__ == "__main__":
