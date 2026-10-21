@@ -91,7 +91,9 @@ def parse_args() -> argparse.Namespace:
 
 async def main() -> None:
     args = parse_args()
+    print(args)
     settings = Settings()
+    print(settings)
     if args.compare and not 2 <= len(args.compare) <= 3:
         raise ValueError("--compare requires 2 or 3 model names")
     if args.compare and args.file:
